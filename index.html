@@ -1,583 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RemTech | Advanced Cybersecurity Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
-        }
-        
-        body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-image: url('https://files.oaiusercontent.com/file-DkQU75suijK6ks9xy9HNZP?se=2025-05-19T10%3A10%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D299%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2520Image%2520May%252019%252C%25202025%252C%252001_04_12%2520PM.png&sig=MSuIN0rBlCZjavd2ScHBCQl4LFogfxGuslU38hAZTAw%3D');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                color: #333;
-                line-height: 1.6;
-
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-        
-        .hero-clip-path {
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .cyber-pattern {
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPgo8cmVjdCB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDZMNiAwWiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiNlZGU5ZWIiPjwvcGF0aD4KPC9zdmc+');
-            opacity: 0.1;
-        }
-        
-        .cyber-grid {
-            background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
-        .glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-        }
-        
-        .glow:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .cyber-badge {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cyber-badge::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255,255,255,0) 0%,
-                rgba(255,255,255,0.1) 50%,
-                rgba(255,255,255,0) 100%
-            );
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemTech Cybersecurity Solutions LTD</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://files.oaiusercontent.com/file-DkQU75suijK6ks9xy9HNZP?se=2025-05-19T10%3A10%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D299%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2520Image%2520May%252019%252C%25202025%252C%252001_04_12%2520PM.png&sig=MSuIN0rBlCZjavd2ScHBCQl4LFogfxGuslU38hAZTAw%3D');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: rgba(13, 71, 161, 0.95);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 0.7rem;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: #1565c0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #0d47a1;
+      margin-bottom: 1rem;
+    }
+    section { margin-bottom: 2rem; }
+    ul.services-list {
+      list-style: disc inside;
+      margin-left: 1rem;
+    }
+    button.cta-btn {
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+    button.cta-btn:hover {
+      background-color: #1565c0;
+    }
+    footer {
+      background-color: rgba(13, 71, 161, 0.95);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    label { font-weight: 600; }
+    form { max-width: 600px; }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      nav ul li { margin-bottom: 0.5rem; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl mr-2">RT</div>
-                        <span class="text-xl font-bold text-gray-800">Rem<span class="text-blue-600">Tech</span></span>
-                    </div>
-                    <div class="hidden md:block ml-10">
-                        <div class="flex space-x-8">
-                            <a href="#home" class="text-blue-600 px-3 py-2 font-medium">Home</a>
-                            <a href="#solutions" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Solutions</a>
-                            <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Services</a>
-                            <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">About</a>
-                            <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Contact</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <a href="#contact" class="ml-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-300 shadow-sm">
-                        Get Protected
-                    </a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 focus:outline-none">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Home</a>
-                <a href="#solutions" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Solutions</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Services</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">About</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Contact</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 mt-2">
-                    Get Protected
-                </a>
-            </div>
-        </div>
-    </nav>
+<body>
+<header>
+  <h1 onclick="location.href='#home'">RemTech Cybersecurity</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-24 hero-clip-path bg-gradient-to-r from-blue-900 to-blue-700 text-white pb-32 relative overflow-hidden">
-        <div class="cyber-pattern absolute inset-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-                <div class="px-4 sm:px-0 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
-                    <div>
-                        <div class="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-6">
-                            <span class="h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
-                            Trusted by Fortune 500 companies
-                        </div>
-                        <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-                            <span class="block">Advanced</span>
-                            <span class="block text-blue-300">Cybersecurity</span>
-                            <span class="block">Solutions</span>
-                        </h1>
-                        <p class="mt-3 text-base text-blue-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Protect your digital assets with our cutting-edge security solutions tailored to your business needs.
-                        </p>
-                        <div class="mt-8 sm:mt-12">
-                            <div class="rounded-md shadow">
-                                <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition duration-300">
-                                    Get Started
-                                </a>
-                            </div>
-                            <div class="mt-3 rounded-md shadow">
-                                <a href="#solutions" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-300">
-                                    Learn More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-16 sm:mt-24 lg:mt-0 lg:col-span-6 relative">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-visible lg:max-w-none lg:mx-0">
-                        <div class="relative aspect-w-10 aspect-h-6">
-                            <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity illustration">
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500 rounded-full opacity-20 animate-float"></div>
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-500 rounded-full opacity-20 animate-float" style="animation-delay: 1s;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<main class="container">
+  <section id="home">
+    <h2>Securing Uganda’s Digital Future</h2>
+    <p>RemTech Cybersecurity Solutions LTD is Uganda’s premier cybersecurity partner specializing in offensive and defensive security, embedded systems protection, and capacity building. We empower organizations to protect critical infrastructure through cutting-edge technical expertise and strategic insights.</p>
+    <button class="cta-btn" onclick="location.href='#contact'">Get a Free Consultation</button>
+  </section>
 
-    <!-- Trusted By Section -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wider mb-8">
-                Trusted by industry leaders
-            </p>
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-                <div class="col-span-1 flex justify-center items-center">
-                    <img class="h-12 grayscale hover:grayscale-0 transition duration-300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon">
-                </div>
-                <div class="col-span-1 flex justify-center items-center">
-                    <img class="h-8 grayscale hover:grayscale-0 transition duration-300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Google">
-                </div>
-                <div class="col-span-1 flex justify-center items-center">
-                    <img class="h-10 grayscale hover:grayscale-0 transition duration-300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_logo.svg/2560px-Microsoft_logo.svg.png" alt="Microsoft">
-                </div>
-                <div class="col-span-1 flex justify-center items-center">
-                    <img class="h-10 grayscale hover:grayscale-0 transition duration-300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/IBM_logo.svg/2560px-IBM_logo.svg.png" alt="IBM">
-                </div>
-                <div class="col-span-1 flex justify-center items-center">
-                    <img class="h-8 grayscale hover:grayscale-0 transition duration-300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png" alt="SAP">
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Our Mission:</strong> To protect critical systems and empower cybersecurity teams with advanced, research-driven services tailored for East Africa.</p>
+    <p><strong>Our Vision:</strong> To lead East Africa’s digital defense by delivering world-class cybersecurity solutions and training.</p>
+    <p><strong>Our Team:</strong></p>
+    <ul>
+      <li>CEO & Founder: [Your Name]</li>
+      <li>CTO: Oversees technical innovation</li>
+      <li>COO: Manages operations and HR</li>
+      <li>Red Team Lead: Offensive security expert</li>
+      <li>Blue Team Lead: Defensive operations specialist</li>
+      <li>Embedded Systems Lead: Firmware and IoT security expert</li>
+      <li>Training Coordinator: Organizes programs</li>
+    </ul>
+  </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions" class="py-20 bg-gray-50 relative overflow-hidden">
-        <div class="cyber-grid absolute inset-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Comprehensive Security Solutions
-                </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
-                    Our suite of cybersecurity solutions protects every layer of your digital infrastructure.
-                </p>
-            </div>
+  <section id="services">
+    <h2>Services</h2>
+    <h3>Offensive Security (Red Team)</h3>
+    <ul class="services-list">
+      <li>Advanced penetration testing</li>
+      <li>Social engineering simulations</li>
+      <li>Physical security assessments</li>
+      <li>Adversary emulation</li>
+    </ul>
+    <h3>Defensive Security (Blue Team)</h3>
+    <ul class="services-list">
+      <li>SIEM support</li>
+      <li>Threat detection and response</li>
+      <li>Forensic analysis</li>
+      <li>Endpoint monitoring</li>
+    </ul>
+    <h3>Reverse Engineering & Malware Analysis</h3>
+    <ul class="services-list">
+      <li>Binary analysis</li>
+      <li>Threat investigation</li>
+      <li>Exploit development</li>
+    </ul>
+    <h3>Embedded Systems & IoT Security</h3>
+    <ul class="services-list">
+      <li>Firmware analysis</li>
+      <li>Device audits</li>
+      <li>Protocol fuzzing</li>
+    </ul>
+    <h3>Training & Capacity Building</h3>
+    <ul class="services-list">
+      <li>Red/Blue Team training</li>
+      <li>Bootcamps and certification</li>
+    </ul>
+    <h3>Advisory & Compliance</h3>
+    <ul class="services-list">
+      <li>Risk assessments</li>
+      <li>Policy development</li>
+      <li>Compliance consulting</li>
+    </ul>
+  </section>
 
-            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Solution 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
-                                <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Threat Protection</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            Advanced threat detection and prevention systems that identify and neutralize cyber threats in real-time.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Real-time monitoring</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">AI-powered threat detection</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Automated response systems</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button class="cta-btn" type="submit">Send Message</button>
+    </form>
+  </section>
+</main>
 
-                <!-- Solution 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-green-100 rounded-lg p-3">
-                                <i class="fas fa-lock text-green-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Data Encryption</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            End-to-end encryption solutions that protect your sensitive data at rest and in transit.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Military-grade encryption</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Key management services</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Compliance ready</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<footer>
+  &copy; 2025 RemTech Cybersecurity Solutions LTD. All rights reserved.
+</footer>
 
-                <!-- Solution 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-purple-100 rounded-lg p-3">
-                                <i class="fas fa-user-shield text-purple-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Identity Management</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            Robust identity and access management solutions that ensure only authorized users access your systems.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Multi-factor authentication</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Role-based access control</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Single sign-on integration</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-red-100 rounded-lg p-3">
-                                <i class="fas fa-network-wired text-red-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Network Security</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            Comprehensive network security solutions that protect your infrastructure from external and internal threats.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Next-gen firewalls</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Intrusion prevention systems</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">VPN and secure remote access</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 5 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-yellow-100 rounded-lg p-3">
-                                <i class="fas fa-cloud text-yellow-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Cloud Security</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            Specialized security solutions for cloud environments that ensure your data is protected across all platforms.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Cloud workload protection</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">SaaS security</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Container security</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 6 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden feature-card transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="p-6">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3">
-                                <i class="fas fa-chart-line text-indigo-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Compliance & Risk</h3>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-base text-gray-600">
-                            Comprehensive compliance solutions that help you meet regulatory requirements and manage security risks.
-                        </p>
-                        <div class="mt-6">
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">GDPR, HIPAA, PCI DSS ready</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Risk assessment tools</p>
-                                </li>
-                                <li class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <i class="fas fa-check-circle text-green-500"></i>
-                                    </div>
-                                    <p class="ml-3 text-sm text-gray-600">Audit and reporting</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 bg-blue-700 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                <div class="text-center">
-                    <div class="text-5xl font-extrabold mb-2">99.9%</div>
-                    <div class="text-lg font-medium">Threat Detection Rate</div>
-                    <div class="mt-2 text-blue-200">Highest in the industry</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-extrabold mb-2">24/7</div>
-                    <div class="text-lg font-medium">Security Monitoring</div>
-                    <div class="mt-2 text-blue-200">Always-on protection</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-extrabold mb-2">500+</div>
-                    <div class="text-lg font-medium">Enterprise Clients</div>
-                    <div class="mt-2 text-blue-200">Trust our solutions</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Our Professional Services
-                </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
-                    Beyond software, we provide expert services to strengthen your security posture.
-                </p>
-            </div>
-
-            <div class="mt-16">
-                <div class="grid gap-8 lg:grid-cols-3">
-                    <!-- Service 1 -->
-                    <div class="bg-gray-50 rounded-lg p-8">
-                        <div class="flex items-center mb-6">
-                            <div class="flex-shrink-0 bg-blue-100 rounded-lg p-3">
-                                <i class="fas fa-search text-blue-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Security Assessment</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Comprehensive evaluation of your current security infrastructure to identify vulnerabilities and recommend improvements.
-                        </p>
-                        <div class="mt-6">
-                            <a href="#" class="text-blue-600 font-medium inline-flex items-center">
-                                Learn more
-                                <i class="fas fa-chevron-right ml-1 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="bg-gray-50 rounded-lg p-8">
-                        <div class="flex items-center mb-6">
-                            <div class="flex-shrink-0 bg-green-100 rounded-lg p-3">
-                                <i class="fas fa-user-graduate text-green-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Security Training</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Customized training programs to educate your team on security best practices and threat awareness.
-                        </p>
-                        <div class="mt-6">
-                            <a href="#" class="text-blue-600 font-medium inline-flex items-center">
-                                Learn more
-                                <i class="fas fa-chevron-right ml-1 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="bg-gray-50 rounded-lg p-8">
-                        <div class="flex items-center mb-6">
-                            <div class="flex-shrink-0 bg-purple-100 rounded-lg p-3">
-                                <i class="fas fa-headset text-purple-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-gray-900">Managed Security</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Full-service security management where our experts monitor and protect your systems around the clock.
-                        </p>
-                        <div class="mt-6">
-                            <a href="#" class="text-blue-600 font-medium inline-flex items-center">
-                                Learn more
-                                <i class="fas fa-chevron-right ml-1 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px
+</body>
 </html>
+

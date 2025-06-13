@@ -2,206 +2,538 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RemTech Cybersecurity Solutions LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary-color: #0f172a;
+      --secondary-color: #1e293b;
+      --text-light: #f1f5f9;
+      --accent-color: #3b82f6;
+    }
+
+    [data-theme="light"] {
+      --primary-color: #f8fafc;
+      --secondary-color: #e2e8f0;
+      --text-light: #1e293b;
+      --accent-color: #2563eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('https://files.oaiusercontent.com/file-DkQU75suijK6ks9xy9HNZP?se=2025-05-19T10%3A10%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D299%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2520Image%2520May%252019%252C%25202025%252C%252001_04_12%2520PM.png&sig=MSuIN0rBlCZjavd2ScHBCQl4LFogfxGuslU38hAZTAw%3D');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
       line-height: 1.6;
     }
+
     header {
-      background-color: rgba(13, 71, 161, 0.95);
-      color: #fff;
+      background: var(--secondary-color);
       padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
     }
+
     header h1 {
       font-size: 1.5rem;
-      cursor: pointer;
+      color: var(--accent-color);
     }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
     }
-    nav ul li a {
-      color: white;
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: var(--text-light);
       text-decoration: none;
       font-weight: 600;
-      padding: 0.4rem 0.7rem;
-      border-radius: 3px;
-      transition: background-color 0.3s ease;
     }
-    nav ul li a:hover {
-      background-color: #1565c0;
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--secondary-color);
+      top: 2.5rem;
+      min-width: 180px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 6px;
     }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-light);
     }
-    h2 {
-      color: #0d47a1;
-      margin-bottom: 1rem;
-    }
-    section { margin-bottom: 2rem; }
-    ul.services-list {
-      list-style: disc inside;
-      margin-left: 1rem;
-    }
-    button.cta-btn {
-      background-color: #0d47a1;
+
+    .dropdown-content a:hover {
+      background-color: var(--accent-color);
       color: white;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      font-size: 1rem;
+    }
+
+    nav li:hover .dropdown-content {
+      display: block;
+    }
+
+    .theme-toggle {
       cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      margin-top: 1rem;
+      font-size: 1.2rem;
     }
-    button.cta-btn:hover {
-      background-color: #1565c0;
+
+    .section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-    footer {
-      background-color: rgba(13, 71, 161, 0.95);
-      color: white;
+
+    .section h2 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
       text-align: center;
+    }
+
+    .typing-text {
+      font-size: 1.25rem;
+      text-align: center;
+      min-height: 70px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: .15em solid var(--accent-color);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-image {
+      width: 80%;
+      max-height: 800px;
+      border-radius: 12px;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--secondary-color);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    .popup {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
       padding: 1rem;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      width: 250px;
+      z-index: 10;
+      text-align: left;
+    }
+
+    .card:hover .popup {
+      display: block;
+    }
+
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      gap: 1rem;
+    }
+
+    .carousel > div {
+      min-width: 380px;
+      padding: 2rem;
+      background: var(--secondary-color);
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel > div i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    .charts-grid-fixed {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       margin-top: 2rem;
     }
-    input[type="text"], input[type="email"], textarea {
-      width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 1rem;
-      resize: vertical;
+
+    .chart-container {
+      background-color: var(--secondary-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
     }
-    label { font-weight: 600; }
-    form { max-width: 600px; }
+
+    .chart-container h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: var(--accent-color);
+    }
+
+    footer {
+      background: var(--secondary-color);
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-socials i {
+      margin: 0 0.5rem;
+      font-size: 0.1rem;
+      cursor: pointer;
+      color: var(--accent-color);
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 1rem;
       }
+
       nav ul {
         flex-direction: column;
-        width: 100%;
+        gap: 0.5rem;
       }
-      nav ul li { margin-bottom: 0.5rem; }
+
+      .charts-grid-fixed {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
-<header>
-  <h1 onclick="location.href='#home'">RemTech Cybersecurity</h1>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
-</header>
+<body data-theme="dark">
+  <header>
+    <h1>RemTech </h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Services</a>
+          <div class="dropdown-content">
+            <a href="#">Penetration Testing</a>
+            <a href="#">Managed SOC</a>
+            <a href="#">Incident Response</a>
+            <a href="#">Training & Awareness</a>
+            <a href="#">GRC Consulting</a>
+          </div>
+        </li>
+        <li><a href="#">Industries</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-adjust"></i>
+    </div>
+  </header>
 
-<main class="container">
-  <section id="home">
-    <h2>Securing Uganda’s Digital Future</h2>
-    <p>RemTech Cybersecurity Solutions LTD is Uganda’s premier cybersecurity partner specializing in offensive and defensive security, embedded systems protection, and capacity building. We empower organizations to protect critical infrastructure through cutting-edge technical expertise and strategic insights.</p>
-    <button class="cta-btn" onclick="location.href='#contact'">Get a Free Consultation</button>
+  <section class="section">
+    <h2>Welcome to RemTech</h2>
+    <div class="typing-text" id="typing-text"></div>
   </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p><strong>Our Mission:</strong> To protect critical systems and empower cybersecurity teams with advanced, research-driven services tailored for East Africa.</p>
-    <p><strong>Our Vision:</strong> To lead East Africa’s digital defense by delivering world-class cybersecurity solutions and training.</p>
-    <p><strong>Our Team:</strong></p>
-    <ul>
-      <li>CEO & Founder: [Your Name]</li>
-      <li>CTO: Oversees technical innovation</li>
-      <li>COO: Manages operations and HR</li>
-      <li>Red Team Lead: Offensive security expert</li>
-      <li>Blue Team Lead: Defensive operations specialist</li>
-      <li>Embedded Systems Lead: Firmware and IoT security expert</li>
-      <li>Training Coordinator: Organizes programs</li>
-    </ul>
+  <img src="https://apollouniversity.edu.in/blog/wp-content/uploads/2024/12/1-01-1568x980.webp" alt="Cybersecurity" class="hero-image">
+
+  <section class="section">
+    <h2>Our Services</h2>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-bug"></i>Penetration Testing
+        <div class="popup">We simulate attacks to identify vulnerabilities in your systems before hackers do.</div>
+      </div>
+      <div class="card"><i class="fas fa-shield-alt"></i>Managed Security Services
+        <div class="popup">24/7 monitoring, firewall management, and incident response through our SOC.</div>
+      </div>
+      <div class="card"><i class="fas fa-hdd"></i>Digital Forensics
+        <div class="popup">We investigate and analyze digital traces to understand breaches and recover data.</div>
+      </div>
+      <div class="card"><i class="fas fa-balance-scale"></i>GRC Consulting
+        <div class="popup">Compliance and risk assessments aligned with local and global standards.</div>
+      </div>
+      <div class="card"><i class="fas fa-cloud"></i>Cloud Security
+        <div class="popup">Securing cloud platforms, apps, and data to prevent unauthorized access.</div>
+      </div>
+      <div class="card"><i class="fas fa-users"></i>Security Training
+        <div class="popup">Training staff on best practices and reducing human risk vectors.</div>
+      </div>
+    </div>
   </section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <h3>Offensive Security (Red Team)</h3>
-    <ul class="services-list">
-      <li>Advanced penetration testing</li>
-      <li>Social engineering simulations</li>
-      <li>Physical security assessments</li>
-      <li>Adversary emulation</li>
-    </ul>
-    <h3>Defensive Security (Blue Team)</h3>
-    <ul class="services-list">
-      <li>SIEM support</li>
-      <li>Threat detection and response</li>
-      <li>Forensic analysis</li>
-      <li>Endpoint monitoring</li>
-    </ul>
-    <h3>Reverse Engineering & Malware Analysis</h3>
-    <ul class="services-list">
-      <li>Binary analysis</li>
-      <li>Threat investigation</li>
-      <li>Exploit development</li>
-    </ul>
-    <h3>Embedded Systems & IoT Security</h3>
-    <ul class="services-list">
-      <li>Firmware analysis</li>
-      <li>Device audits</li>
-      <li>Protocol fuzzing</li>
-    </ul>
-    <h3>Training & Capacity Building</h3>
-    <ul class="services-list">
-      <li>Red/Blue Team training</li>
-      <li>Bootcamps and certification</li>
-    </ul>
-    <h3>Advisory & Compliance</h3>
-    <ul class="services-list">
-      <li>Risk assessments</li>
-      <li>Policy development</li>
-      <li>Compliance consulting</li>
-    </ul>
+  <section class="section">
+    <h2>Industries We Serve</h2>
+    <div class="carousel" id="industry-carousel">
+      <div><i class="fas fa-piggy-bank"></i><strong> Finance</strong><br />Protecting banks & fintechs</div>
+      <div><i class="fas fa-university"></i><strong> Government</strong><br />Securing public infrastructure</div>
+      <div><i class="fas fa-hands-helping"></i><strong> NGOs</strong><br />Enabling safe digital outreach</div>
+      <div><i class="fas fa-building"></i><strong> Corporates</strong><br />Building cyber-resilient enterprises</div>
+      <div><i class="fas fa-graduation-cap"></i><strong> Education</strong><br />Safeguarding knowledge and data</div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button class="cta-btn" type="submit">Send Message</button>
-    </form>
+  <section class="section">
+    <h2>Why Choose RemTech</h2>
+    <div class="charts-grid-fixed">
+      <div class="chart-container">
+        <h4>Cybersecurity Growth (%)</h4>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h4>Clients by Industry</h4>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h4>Service Distribution</h4>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h4>Capability Score</h4>
+        <canvas id="radarChart"></canvas>
+      </div>
+    </div>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 RemTech Cybersecurity Solutions LTD. All rights reserved.
+ <footer>
+  <div>&copy; 2025 RemTech Cybersecurity Solutions LTD</div>
+  <div>Kampala, Uganda | <strong>Contact:</strong> info@remtech.com</div>
+
+  <div class="footer-sections" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; text-align: left;">
+    <div>
+      <h4>Contact</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>+256 700 000 000</li>
+        <li>info@remtech.com</li>
+        <li>Kampala, Uganda</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Social</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>LinkedIn</li>
+        <li>GitHub</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Policies</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>Privacy Policy</li>
+        <li>Terms of Service</li>
+        <li>Acceptable Use</li>
+        <li>Security Policy</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>RemTech CNAPP</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>RemTech Code</li>
+        <li>RemTech Cloud</li>
+        <li>RemTech Defend</li>
+        <li>Integrations</li>
+        <li>Environments</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Documentation</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>Learn</li>
+        <li>Customer Stories</li>
+        <li>Train Your Team for Cloud</li>
+        <li>Blog</li>
+        <li>CloudSec Academy</li>
+        <li>Resources Center</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Cloud Insights</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>Cloud Threat Landscape</li>
+        <li>Cloud Security Assessment</li>
+        <li>Vulnerability Database</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li>About RemTech</li>
+        <li>Join the Team</li>
+        <li>Newsroom</li>
+        <li>Events</li>
+        <li>Contact Us</li>
+        <li>Trust Center</li>
+        <li>Our Partners</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-socials" style="margin-top: 1rem;">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-linkedin"></i>
+    <i class="fab fa-github"></i>
+  </div>
 </footer>
 
+
+ <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    const text = "East Africa’s leading cybersecurity partner. We protect digital assets with precision, integrity, and innovation.";
+    let index = 0;
+    const speed = 50;
+    function typeText() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, speed);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      typeText();
+
+      const carousel = document.getElementById('industry-carousel');
+      setInterval(() => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+          carousel.scrollLeft = 0;
+        } else {
+          carousel.scrollLeft += 380;
+        }
+      }, 2500);
+
+      const animationSettings = {
+        duration: 10000,
+        easing: 'easeOutQuart'
+      };
+
+      new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+          labels: ['2021', '2022', '2023', '2024', '2025'],
+          datasets: [{
+            label: 'Growth (%)',
+            data: [10, 25, 40, 60, 85],
+            borderColor: '#3b82f6',
+            fill: false
+          }]
+        },
+        options: {
+          animation: animationSettings
+        }
+      });
+
+      new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Finance', 'Govt', 'NGOs', 'Corporate', 'Education'],
+          datasets: [{
+            label: 'Clients Secured',
+            data: [25, 40, 20, 30, 35],
+            backgroundColor: '#2563eb'
+          }]
+        },
+        options: {
+          animation: animationSettings
+        }
+      });
+
+      new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+          labels: ['PenTest', 'SOC', 'Training', 'Forensics'],
+          datasets: [{
+            data: [30, 25, 20, 25],
+            backgroundColor: ['#3b82f6', '#2563eb', '#1e40af', '#1e3a8a']
+          }]
+        },
+        options: {
+          animation: animationSettings
+        }
+      });
+
+      new Chart(document.getElementById('radarChart'), {
+        type: 'radar',
+        data: {
+          labels: ['Detection', 'Response', 'Awareness', 'Recovery', 'Compliance'],
+          datasets: [{
+            label: 'Capability Score',
+            data: [80, 75, 85, 70, 90],
+            backgroundColor: 'rgba(59, 130, 246, 0.3)',
+            borderColor: '#3b82f6'
+          }]
+        },
+        options: {
+          animation: animationSettings,
+          scales: {
+            r: {
+              angleLines: { display: false },
+              suggestedMin: 0,
+              suggestedMax: 100
+            }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
+ 
